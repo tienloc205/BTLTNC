@@ -1,0 +1,29 @@
+bool Beautiful_Pair(vector<pair<double, double>> pairs) {
+    sort(pairs.begin(), pairs.end());
+    for (auto pair : pairs) {
+        if (pair.first <= pair.second) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<pair<double, double>> pairs;
+    for (int i = 0; i < n; ++i) {
+        double height_male, height_female;
+        cin >> height_male >> height_female;
+        pairs.push_back(make_pair(height_male, height_female));
+    }
+
+    if (Beautiful_Pair(pairs)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
+    return 0;
+}
