@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+#include <vector>
+#include <algorithm>
+
+bool Is_Kill(int x[], int y[], int n){
+    for (int i=0;i<n;i++){
+        for (int j=0;j<n;j++){
+            if ((x[i]==x[j]) || (y[i]==y[j])|| (x[j]-x[i]==y[j]-y[i])) return true;
+        }
+    }
+    return false;
+}
+int main()
+{
+    int n; 
+    cin >> n;
+    int x[n], y[n];
+    for (int i=0;i<n;i++) cin >> x[i];
+    for (int i=0;i<n;i++) cin >> y[i];
+    cout << Is_Kill(x,y,n)?"yes":"no";
+}
